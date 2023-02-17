@@ -9,3 +9,12 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+// Quote model
+model Quote {
+  id        Int      @id @default(autoincrement())
+  symbol    String
+  price     Float
+  volume    Float
+  timestamp DateTime
+}
