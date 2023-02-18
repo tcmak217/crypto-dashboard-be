@@ -1,26 +1,18 @@
 import { Injectable } from '@nestjs/common';
-import { CreateQuoteDto } from './dto/create-quote.dto';
-import { UpdateQuoteDto } from './dto/update-quote.dto';
+import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
 export class QuotesService {
-  create(createQuoteDto: CreateQuoteDto) {
-    return 'This action adds a new quote';
+  constructor(private prisma: PrismaService) {}
+  async selectAllQuotes() {
+    return await this.prisma.quote.findMany();
   }
 
-  findAll() {
-    return `This action returns all quotes`;
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} quote`;
-  }
-
-  update(id: number, updateQuoteDto: UpdateQuoteDto) {
-    return `This action updates a #${id} quote`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} quote`;
+  async selectOneQuote(symbol: string) {
+    return await this.prisma.quote.findFirst({
+      where: {
+        symbol,
+      },
+    });
   }
 }
