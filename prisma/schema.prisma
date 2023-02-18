@@ -16,5 +16,6 @@ model Quote {
   symbol    String
   price     Float
   volume    Float
+  change    Float
   timestamp DateTime
 }

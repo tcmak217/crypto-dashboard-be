@@ -23,12 +23,14 @@ async function main() {
         price: Math.random() * 10000 + 10000,
         volume: Math.random() * 10000 + 1000,
         timestamp: new Date(),
+        change: Math.random() * 1000 + 100,
       },
       create: {
         symbol: symbol,
         price: Math.random() * 10000 + 10000,
         volume: Math.random() * 10000 + 1000,
         timestamp: new Date(),
+        change: Math.random() * 1000 + 100,
       },
     });
     console.log({ quote });
