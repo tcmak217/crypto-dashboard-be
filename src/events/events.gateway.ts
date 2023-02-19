@@ -7,7 +7,7 @@ import {
 import { Server } from 'socket.io';
 import { QuotesService } from 'src/quotes/quotes.service';
 
-@WebSocketGateway()
+@WebSocketGateway({ cors: true })
 export class EventsGateway {
   constructor(private quotesService: QuotesService) {}
   @WebSocketServer()
@@ -15,11 +15,9 @@ export class EventsGateway {
 
   @SubscribeMessage('quotes')
   async handleMessage(@MessageBody() body: any) {
-    if (body === 'subscribe') {
-      setInterval(async () => {
-        const quotes = await this.quotesService.selectAllQuotes();
-        this.server.emit('quotes', quotes);
-      }, 30000);
-    }
+    setInterval(async () => {
+      const quotes = await this.quotesService.selectAllQuotes();
+      this.server.emit('quotes', quotes);
+    }, 15000);
   }
 }
