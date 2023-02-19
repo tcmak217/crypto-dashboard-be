@@ -5,9 +5,15 @@ import { AppService } from './app.service';
 import { QuotesModule } from './quotes/quotes.module';
 import { CronModule } from './cron/cron.module';
 import { PrismaModule } from './prisma/prisma.module';
-
+import { EventsModule } from './events/events.module';
 @Module({
-  imports: [QuotesModule, ScheduleModule.forRoot(), CronModule, PrismaModule],
+  imports: [
+    QuotesModule,
+    ScheduleModule.forRoot(),
+    CronModule,
+    PrismaModule,
+    EventsModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
