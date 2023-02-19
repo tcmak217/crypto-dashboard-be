@@ -12,7 +12,7 @@ async function main() {
     dash: 'Dash',
     maid: 'MaidSafeCoin',
     lsk: 'Lisk',
-    sicx: 'Storjcoin X',
+    sjcx: 'Storjcoin X',
   };
 
   for (const [symbol, name] of Object.entries(symbols)) {
