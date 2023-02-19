@@ -42,7 +42,8 @@ export class CronService {
         data: {
           price: Number(quote.priceUsd),
           volume: Number(quote.volumeUsd24Hr),
-          change: Number(quote.changePercent24Hr),
+          change:
+            Number(quote.priceUsd) * Number(quote.changePercent24Hr) * 0.01,
           timestamp: new Date(data.timestamp),
         },
       });
