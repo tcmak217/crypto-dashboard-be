@@ -12,10 +12,11 @@ datasource db {
 
 // Quote model
 model Quote {
-  id        Int      @id @default(autoincrement())
-  symbol    String
-  price     Float
-  volume    Float
-  change    Float
-  timestamp DateTime
+  id         Int      @id @default(autoincrement())
+  symbol     String   @unique
+  cryptoName String
+  price      Float
+  volume     Float
+  change     Float
+  timestamp  DateTime
 }
